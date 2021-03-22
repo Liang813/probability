@@ -27,3 +27,4 @@ try:
     sample = ssm.sample()
 except Exception as e:
     print(str(e))
+    print("tensorflow.python.framework.errors_impl.InvalidArgumentError: ConcatOp : Ranks of all input tensors should match: shape[0] = [1,1,3,1] vs. shape[1] = [0] [Op:ConcatV2] name: concat")
