@@ -1,6 +1,6 @@
 import tensorflow_probability as tfp
 import tensorflow as tf
-
+import traceback
 try:
     tfd = tfp.distributions
     tfl = tf.linalg
@@ -26,6 +26,5 @@ try:
 
     sample = ssm.sample()
 except Exception as e:
-    print("tensorflow.python.framework.errors_impl.InvalidArgumentError:")
-    print(str(e))
+    traceback.print_exc(file=open('/script/probability417-buggy.txt','w+'))
     
