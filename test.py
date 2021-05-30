@@ -1,6 +1,6 @@
 from tensorflow_probability import distributions as tfd
 import numpy as np
-
+import traceback
 
 def get_random_mixture_pdf(float_type):
     N_predictions = int(1e2)
@@ -23,7 +23,9 @@ def get_random_mixture_pdf(float_type):
     grid = np.linspace(-10, 10, num=N_grid_points).astype(float_type)
     pdf = mixture_distribution.prob(grid)
     return pdf
-
-pdf = get_random_mixture_pdf(float_type='float32')  # works
-pdf = get_random_mixture_pdf(float_type='float64')  #InvalidArgumentError
-pdf = get_random_mixture_pdf(float_type='float16')  #InvalidArgumentError
+try:
+    pdf = get_random_mixture_pdf(float_type='float32')  # works
+    pdf = get_random_mixture_pdf(float_type='float64')  #InvalidArgumentError
+    pdf = get_random_mixture_pdf(float_type='float16')  #InvalidArgumentError
+except Exception as e:
+    traceback.print_exc(file=open('/script/probability1010-buggy.txt','w+'))
