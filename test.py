@@ -27,3 +27,4 @@ def get_random_mixture_pdf(float_type):
 pdf = get_random_mixture_pdf(float_type='float32')  # works
 pdf = get_random_mixture_pdf(float_type='float64')  #InvalidArgumentError
 pdf = get_random_mixture_pdf(float_type='float16')  #InvalidArgumentError
+print("success")
